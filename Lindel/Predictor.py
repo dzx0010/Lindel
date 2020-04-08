@@ -1,8 +1,12 @@
+'''Adding shebang line to make it run under my system environment'''
+#! /usr/bin/env python3
 import numpy as np
 import scipy.sparse as sparse
 import re
 import json
-
+'''import numpy model as short name np, import scipy.sparse as short name sparse \
+and import re and json models to make all functions in these modules work well in this script'''
+ 
 def gen_indel(sequence,cut_site):
     '''This is the function that used to generate all possible unique indels and 
     list the redundant classes which will be combined after'''
