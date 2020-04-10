@@ -1,4 +1,4 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python3 
 # Author: Will Chen
 ''' 
 1. All functions are tested under python3.5 and python 3.6
