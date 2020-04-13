@@ -26,8 +26,7 @@ def gen_indel(sequence,cut_site):
                     if dstart-30 <1:
                         uniqe_seq[seq] = array
                 except KeyError: uniqe_seq[seq] = array
-'''Comments: sequence[0:cut_site] and sequence[cut_site:] have been defined as up and down, respectively. so here sequence[0:cut_site] and sequence[cut_site:] can be replace as  up and down to make run fast'''
-    for base in nt:
+    for base in nt: 
         seq = sequence[0:cut_site]+base+sequence[cut_site:]
         indel = sequence[0:cut_site]+'-'+sequence[cut_site:]
         array = [sequence,indel,13,'ins',0,1,base,None,None]
