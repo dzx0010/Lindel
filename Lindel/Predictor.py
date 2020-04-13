@@ -27,14 +27,14 @@ def gen_indel(sequence,cut_site):
                         uniqe_seq[seq] = array
                 except KeyError: uniqe_seq[seq] = array
     for base in nt: 
-        seq = up+base+down
-        indel = up+'-'+down
+        seq = sequence[0:cut_site]+base+sequence[cut_site:]
+        indel = sequence[0:cut_site]+'-'+sequence[cut_site:]
         array = [sequence,indel,13,'ins',0,1,base,None,None]
         try: uniqe_seq[seq] = array
         except KeyError: uniqe_seq[seq] = array
         for base2 in nt:
-            seq = up + base + base2 + down
-            indel = up+'--'+ down
+            seq = sequence[0:cut_site] + base + base2 + sequence[cut_site:]
+            indel = sequence[0:cut_site]+'--'+sequence[cut_site:]
             array = [sequence,indel,13,'ins',0,2,base+base2,None,None]
             try: uniqe_seq[seq] = array
             except KeyError:uniqe_seq[seq] = array
