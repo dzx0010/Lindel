@@ -28,7 +28,3 @@ try:
     write_file(seq,pred_sorted,pred_freq,filename)
 except ValueError:
     print ('Error: No PAM sequence is identified.Please check your sequence and try again')
-import time
-start_time = time.time()
-main()
-print("--- %s seconds ---" % (time.time() - start_time))
