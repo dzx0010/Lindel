@@ -19,7 +19,7 @@ filename = sys.argv[2]
 try:
     y_hat, fs = gen_prediction(seq,weights,prerequesites)
     filename += '_fs_' + str(round(fs,3))+'.txt'
-'''=is special character which is not good use in filename'''
+#=is special character which is not good use in filename
     rev_index = prerequesites[1]
     pred_freq = {}
     for i in range(len(y_hat)):
