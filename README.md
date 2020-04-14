@@ -51,8 +51,8 @@ Argument 2 is output filename.
 For example:
 One of my project is knocking out MC4R gene which is associated with dominantly inherited obesity using CRISPR/Cas9 to get fast growth channel catfish. SgRNA is designed using CRISPRscan tools at MC4R exon1: CCGCCTGCCACACGGGGCCGTTCCCCGGTAAGGCGGCGATGCGTTTCATGTGAA
 I used Lindel to predict the mutational outcomes to check if the SgRNA is a efficient one.
-$ python3 Lindel_prediction.py CCGCCTGCCACACGGGGCCGTTCCCCGGTAAGGCGGCGATGCGTTTCATGTGAAGCCGCGCCAAGAGGAACATGTGCACGTAAAGCGAGGCCA  output
-It will output a file named output_fs=0.753.txt
+$ python3 Lindel_prediction.py CCGCCTGCCACACGGGGCCGTTCCCCGGTAAGGCGGCGATGCGTTTCATGTGAAGCCGCGCCAAGAGGAACATGTGCACGTAAAGCGAGGCCA output
+It will output a file named output_fs_0.818.txt
 Results as follows:
 CCGCCTGCCACACGGGGCCGTTCCCCGGTA | AGGCGGCGATGCGTTTCATGTGAA0	
 CCGCCTGCCACACGGGGCCGTTCCCCGGTA | -GGCGGCGATGCGTTTCATGTGAA 10.71271172	D1  0

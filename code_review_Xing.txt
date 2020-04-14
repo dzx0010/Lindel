@@ -1,0 +1,53 @@
+ Model introduction:
+ In recent years, CRISPR/Cas9 has become a very popular and powerful tool for genome editing. This paper systematically profiled ~1.6 million independent mutational events resulting from CRISPR/Cas9 mediated cleavage and NHEJ mediate DSB repair of 6872 synthetic target sequences, introduced in to a human cell line via lentiviral infection, then developed a model called Lindel was designed to predict the distribution of mutational outcomes using local sequence context.
+  Scripts and software are available from GitHub repository: https://github.com/shendurelab/Lindel . Lindel is written in Python3, and It mainly has model scripts with .pkl format and python scripts.
+How to run?
+1.  Set up running environment and install software:
+(1) Modify shebang line of setup.py to make it run correctly
+(2) $Python3 setup.py build    to build environment 
+(3) $python3 setup.py install  to install software needed
+(4) $python3 setup.py - - help  can help you run  
+2.  Predict the mutational outcomes
+$ python3 Lindel_prediction.py [argument1 argument2]
+Argument 1 is local sequence context which has PAM region (NGG) at 34~36bp. SgRNA should be from 14 to 33 bp of sequence.
+Argument 2 is output filename.
+For example:
+One of my project is knocking out MC4R gene which is associated with dominantly inherited obesity using CRISPR/Cas9 to get fast growth channel catfish. SgRNA is designed using CRISPRscan tools at MC4R exon1: CCGCCTGCCACACGGGGCCGTTCCCCGGTAAGGCGGCGATGCGTTTCATGTGAA
+I used Lindel to predict the mutational outcomes to check if the SgRNA is a efficient one.
+$ python3 Lindel_prediction.py CCGCCTGCCACACGGGGCCGTTCCCCGGTAAGGCGGCGATGCGTTTCATGTGAAGCCGCGCCAAGAGGAACATGTGCACGTAAAGCGAGGCCA  output
+It will output a file named output_fs_0.818.txt
+Results as follows:
+CCGCCTGCCACACGGGGCCGTTCCCCGGTA | AGGCGGCGATGCGTTTCATGTGAA0  
+CCGCCTGCCACACGGGGCCGTTCCCCGGTA | -GGCGGCGATGCGTTTCATGTGAA 10.71271172   D1  0
+CCGCCTGCCACACGGGGCCGTTCCCCGG-- | ---CGGCGATGCGTTTCATGTGAA 5.01879496 D5  -2
+CCGCCTGCCACACGGGGCCGTTCCCCGGTA A AGGCGGCGATGCGTTTCATGTGAA 4.50490689 I1+A
+CCGCCTGCCACACGGGGC------------ | ----GGCGATGCGTTTCATGTGAA 3.09079637 D16 -12
+CCGCCTGCCACACGGGGCCGTTC------- | ------------GTTTCATGTGAA 2.78325119 D19  -7
+CCGCCTGCCACACGGGGCCGTTCCCCGG-- | ------CGATGCGTTTCATGTGAA 2.50422540 D8  -2
+CCGCCTGCCACACGGGGCCGTTCCCCGGT- | -------GATGCGTTTCATGTGAA 1.90758451 D8  -1
+CCGCCTGCCACACGGGGC------------ | -------GATGCGTTTCATGTGAA 1.81548470 D19  -12
+CCGCCTGCCACACGGGGCCGTTCCCCGG-- | AGGCGGCGATGCGTTTCATGTGAA 1.75673152 D2  -2
+…
+Evaluation:
+Goodness:
+1.  There are several small scripts instead of a larger one in Lindel, that make it easier to modify and correct
+2.  These scripts are useful for gene editing researchers and quite simple to run
+ Weakness:
+1.  There is almost empty in README.md. No instructions and no examples are provided, that make it really different for others to use this script.
+2.  I can’t use Setup.py to install all packages because default install path problems
+3.  There is no argparse and this scripts can’t deal with multiple sequence at one.
+
+Modification and improvements:
+1.  README.md: I added how to run install the packages (using pip install)  and how to run this scripts in README.md, and provided an example.
+2.  Modified the scripts execution time:
+Before modifying:
+  real    0m0.951s
+  user    0m0.458s
+   sys     0m0.423s
+After modifying:
+    real    0m0.855s
+    user    0m0.459s
+sys     0m0.369s
+3.  Added some comments and improved the output filename
+
+
